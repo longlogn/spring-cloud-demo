@@ -1,0 +1,16 @@
+server:
+  port: 8000
+
+eureka:
+  instance:
+    hostname: 10.1.81.33
+    ip-address: 10.1.81.33 #服务发现服务器的IP地址
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: eurka-server

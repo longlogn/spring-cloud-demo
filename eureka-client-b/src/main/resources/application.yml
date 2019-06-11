@@ -1,0 +1,11 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: eureka-client-b
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.1.81.33:8000/eureka/
