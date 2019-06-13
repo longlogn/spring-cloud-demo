@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author Toby
  * @date 2019-6-11
  */
-@FeignClient(value = "eureka-client-a")
+@FeignClient(value = "eureka-client-a", fallbackFactory = ClientAFeignFallBackFactory.class)
 public interface ClientAFeignClient {
 
+    /**
+     * 调用hello接口
+     * @return
+     */
     @GetMapping("/hello")
     String hello();
 }

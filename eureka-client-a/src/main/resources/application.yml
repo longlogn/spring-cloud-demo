@@ -4,8 +4,16 @@ server:
 spring:
   application:
     name: eureka-client-a
+  cloud:
+    config:
+      profile: dev
+      discovery:
+        enabled: true             #开启服务发现，从注册中心找config-server服务
+        service-id: config-server #注册到注册中心的配置中心服务名
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://10.1.81.33:8000/eureka/
+
+

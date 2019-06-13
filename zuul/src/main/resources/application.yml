@@ -1,0 +1,19 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.1.81.33:8000/eureka/
+zuul:
+  routes:
+    eureka-client-a:
+      path: /client-a/**
+      serviceId: eureka-client-a
+    eureka-client-b:
+      path: /client-b/**
+      serviceId: eureka-client-b

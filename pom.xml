@@ -10,6 +10,8 @@
         <module>eureka-server</module>
         <module>eureka-client-a</module>
         <module>eureka-client-b</module>
+        <module>zuul</module>
+        <module>config-server</module>
     </modules>
     <artifactId>spring-cloud-demo</artifactId>
     <packaging>pom</packaging>

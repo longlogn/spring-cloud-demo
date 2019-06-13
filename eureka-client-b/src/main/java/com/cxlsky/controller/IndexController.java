@@ -23,7 +23,7 @@ public class IndexController {
     @Value("${spring.application.name}")
     private String applicationName;
 
-    @GetMapping("hello/from/a")
+    @GetMapping("/hello/from/a")
     public String helloFromA() {
         String hello = clientAFeignClient.hello();
         return "this is " + applicationName + ", port: " + port + " and receive hello from: " + hello;
