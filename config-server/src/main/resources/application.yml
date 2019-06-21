@@ -11,8 +11,17 @@ spring:
           uri: https://github.com/longlogn/config
           default-label: master
           search-paths: '{profile}'
+    consul:
+      host: ${DS_SERVER:192.168.132.131}
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}-${random.uuid}
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://10.1.81.33:8000/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
