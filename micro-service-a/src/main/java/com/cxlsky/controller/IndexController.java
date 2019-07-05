@@ -1,6 +1,8 @@
 package com.cxlsky.controller;
 
+import com.cxlsky.controller.mq.MessageSender;
 import com.netflix.ribbon.Ribbon;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,12 +21,14 @@ public class IndexController {
     private String port;
     @Value("${spring.application.name}")
     private String applicationName;
-//    @Value("${test}")
-//    private String test;
-
+    @Value("${test}")
+    private String test;
+    @Autowired
+    private MessageSender messageSender;
     @GetMapping("/hello")
     public String hello() {
-        return "applicationName is: " + applicationName + ", port is: " + port + " config server test: " + "NO";
+        messageSender.send();
+        return "applicationName is: " + applicationName + ", port is: " + port + " config server test: " + test;
     }
 
 }

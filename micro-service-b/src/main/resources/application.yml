@@ -10,6 +10,18 @@ spring:
       port: 8500
       discovery:
         instance-id: ${spring.application.name}-${random.uuid}
+#        hostname: 10.1.81.33
+    stream:
+      bindings:
+        hello_a:
+          destination: sayHello
+          content-type: application/json
+          group: hello
+
+  rabbitmq:
+    host: 192.168.132.131
+    username: guest
+    password: guest
 management:
   endpoints:
     web:

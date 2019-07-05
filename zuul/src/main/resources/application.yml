@@ -10,6 +10,7 @@ spring:
       port: 8500
       discovery:
         instance-id: ${spring.application.name}-${random.uuid}
+        hostname: 10.1.81.33
 
 management:
   endpoints:
@@ -23,8 +24,8 @@ management:
 zuul:
   routes:
     eureka-client-a:
-      path: /client-a/**
+      path: /service-a/**
       serviceId: eureka-client-a
     eureka-client-b:
-      path: /client-b/**
-      serviceId: eureka-client-b
+      path: /service-b/**
+      serviceId: micro-service-b

@@ -1,20 +1,32 @@
 server:
-  port: 8080
+  port: 8003
 
 spring:
   application:
     name: micro-service-a
   cloud:
-    config:
-      profile: dev
-      discovery:
-        enabled: true             #开启服务发现，从注册中心找config-server服务
-        service-id: config-server
     consul:
       host: ${DS_SERVER:192.168.132.131}
       port: 8500
       discovery:
         instance-id: ${spring.application.name}-${random.uuid}
+#        hostname: 10.1.81.33
+    config:
+      profile: dev
+      discovery:
+        enabled: true             #开启服务发现，从注册中心找config-server服务
+        service-id: config-server
+    stream:
+      bindings:
+        hello_B:
+          destination: sayHello
+          content-type: application/json
+          group: hello
+
+  rabbitmq:
+    host: 192.168.132.131
+    username: guest
+    password: guest
 
 management:
   endpoints:
