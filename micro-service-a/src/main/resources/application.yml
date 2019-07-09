@@ -24,7 +24,7 @@ spring:
           group: hello
 
   rabbitmq:
-    host: 192.168.132.131
+    host: ${RABBIT_MQ_SERVER:192.168.132.131}
     username: guest
     password: guest
 
